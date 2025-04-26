@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Novo Chamado</h2>
+<form method="post">
+    <input name="titulo" placeholder="Título">
+    <textarea name="descricao" placeholder="Descrição"></textarea>
+    <button type="submit">Criar</button>
+</form>
+{% endblock %}

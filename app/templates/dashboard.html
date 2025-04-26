@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Chamados</h2>
+<a href="{{ url_for('chamado.novo_chamado') }}">Novo Chamado</a>
+<ul>
+{% for chamado in chamados %}
+    <li>{{ chamado.titulo }} - {{ chamado.status }}</li>
+{% endfor %}
+</ul>
+{% endblock %}
