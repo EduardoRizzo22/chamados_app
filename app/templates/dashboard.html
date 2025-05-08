@@ -23,8 +23,9 @@
             <td>{{ chamado.descricao }}</td>
             <td>{{ chamado.status }}</td>
             <td>{{ chamado.usuario_id }}</td>
-            <td id="tabAction"><a><button id="btn">fechar chamado</button></a>
-                <a><button id="btnExclude">excluir</button></a>
+            <td id="tabAction">
+                <button id="btn" onclick="fecharChamado({{ chamado.id }})">fechar chamado</button>
+                <button id="btnExclude" onclick="excluirChamado({{ chamado.id }})">excluir</button>
             </td>
         </tr>
         {% endfor %}
@@ -37,7 +38,24 @@
         <a href="/logout">
             <button id="btn">Logout</button> 
         </a>
+        <a href="">
+            <button id="btn">Novo Usuário</button> 
+        </a>
     </div>
+
+
+    
+    <script>
+        function fecharChamado(id) {
+            fetch(`/chamado/fechar/${id}`, { method: 'POST' })
+                .then(() => location.reload());
+        }
+    
+        function excluirChamado(id) {
+            fetch(`/chamado/excluir/${id}`, { method: 'POST' })
+                .then(() => location.reload());
+        }
+    </script>
     
 </body>
 </html>

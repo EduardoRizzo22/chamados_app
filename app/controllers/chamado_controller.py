@@ -24,3 +24,21 @@ def novo_chamado():
         db.session.commit()
         return redirect('/dashboard')
     return render_template('chamados/novo.html')
+
+@bp.route('/chamado/fechar/<int:id>', methods=['POST'])
+@login_required
+def fechar_chamado(id):
+    chamado = Chamado.query.get(id)
+    if chamado:
+        chamado.status = 'fechado'
+        db.session.commit()
+    return redirect('/dashboard')
+
+@bp.route('/chamado/excluir/<int:id>', methods=['POST'])
+@login_required
+def excluir_chamado(id):
+    chamado = Chamado.query.get(id)
+    if chamado:
+        db.session.delete(chamado)
+        db.session.commit()
+    return redirect('/dashboard')
