@@ -1,2 +1,156 @@
-body { font-family: Arial; margin: 20px; }
-input, textarea { display: block; margin-bottom: 10px; }
+body { 
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 100%;
+    align-items: center;
+    align-content: center;
+    font-family: Arial;
+    margin: 50px;
+}
+
+input, textarea { display: block; margin-bottom: 20px; }
+
+h1{
+    font-weight: 600;
+    font-variant: small-caps;
+}
+
+#btnDiv{
+    width: 75%;
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    align-content: center;
+}
+
+#btn{
+    width: 90%;
+    height: 35px;
+    align-self: center;
+    
+    border-color:black;
+    background-color: yellowgreen;
+}
+#btnCancel{
+    width: 90%;
+    height: 35px;
+    align-self: center;
+    
+    border-color:black;
+    background-color: rgb(235, 173, 173);
+}
+#btnExclude{
+    width: 90%;
+    height: 35px;
+    align-self: center;
+    
+    border-color:black;
+    background-color: rgb(235, 173, 173);
+}
+
+
+
+
+/* LOGIN */
+
+#formLogin{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#inputLogin{
+    width: 50%;
+    height: 20px;
+    align-self: center;
+
+    border-radius: 6px;
+    border-width: 2px;
+    border-color: black;
+    padding: 5px;
+
+    font-family: Arial;
+    font-size: medium;
+    font-weight: 200;
+}
+
+/* DASHBOARD */
+
+a{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    text-decoration: none;
+}
+
+table{
+    margin-bottom: 5%;
+    align-content: space-around;
+    align-items: center;
+    align-content: center;
+    height: auto;
+}
+
+tr{
+    margin-top: 20%;
+    height: 50px;
+    align-items: center;
+    align-content: center;
+    border-bottom: 1px solid #ddd;
+}
+
+td{
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 20%;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+}
+
+tr:nth-child(odd) {
+    background-color: rgb(218, 214, 214);
+  }
+
+
+/*CHAMADO NOVO */
+
+#formNovoChamado{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#tituloNovoChamado{
+    width: 75%;
+    height: 20px;
+    align-self: center;
+
+    border-radius: 6px;
+    border-width: 2px;
+    border-color: black;
+    padding: 5px;
+
+    font-family: Arial;
+    font-size: medium;
+    font-weight: 200;
+}
+
+#descricaoNovoChamado{
+    width: 75%;
+    height: 100px;
+    align-self: center;
+
+    border-radius: 6px;
+    border-width: 2px;
+    border-color: black;
+    padding: 5px;
+
+    font-family: Arial;
+    font-size: medium;
+    font-weight: 200;
+}
+

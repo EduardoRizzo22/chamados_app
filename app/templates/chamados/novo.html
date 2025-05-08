@@ -1,9 +1,21 @@
-{% extends 'base.html' %}
-{% block content %}
-<h2>Novo Chamado</h2>
-<form method="post">
-    <input name="titulo" placeholder="Título">
-    <textarea name="descricao" placeholder="Descrição"></textarea>
-    <button type="submit">Criar</button>
-</form>
-{% endblock %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>abertura de chamado</title>
+        <link rel="stylesheet" href="../../static/style.css">
+        <script> return novoChamado </script>
+    </head>
+    <body>
+        <h1>Novo Chamado</h1>
+        <form id="formNovoChamado" method="post">
+            <input id= "tituloNovoChamado" name="titulo" placeholder="Título">
+            <textarea id="descricaoNovoChamado" name="descricao" placeholder="Descrição"></textarea>
+            <button id="btn" type="submit">Criar</button>
+        </form>
+        <a href="/dashboard"><button id="btnCancel">cancelar</button></a>
+    </body>
+</html>
+
+
+
+
