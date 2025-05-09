@@ -1,10 +1,61 @@
-{% extends 'base.html' %}
-{% block content %}
-<h2>Chamados</h2>
-<a href="{{ url_for('chamado.novo_chamado') }}">Novo Chamado</a>
-<ul>
-{% for chamado in chamados %}
-    <li>{{ chamado.titulo }} - {{ chamado.status }}</li>
-{% endfor %}
-</ul>
-{% endblock %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sistema de Chamados</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <h1>Chamados</h1>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>TÍTULO</th>
+            <th id="descTab">DESCRIÇÃO</th>
+            <th>STATUS</th>
+            <th>USUÁRIO</th>
+            <th>AÇÃO</th>
+        </tr>
+        {% for chamado in chamados %}
+        <tr>
+            <td>{{ chamado.id }}</td>
+            <td>{{ chamado.titulo }}</td>
+            <td>{{ chamado.descricao }}</td>
+            <td>{{ chamado.status }}</td>
+            <td>{{ chamado.usuario_id }}</td>
+            <td id="tabAction">
+                <button id="btn" onclick="fecharChamado({{ chamado.id }})">fechar chamado</button>
+                <button id="btnExclude" onclick="excluirChamado({{ chamado.id }})">excluir</button>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <div id="btnDiv">
+        <a href="/chamado/novo">
+            <button id="btn">Novo chamado</button> 
+        </a>
+        <a href="/logout">
+            <button id="btn">Logout</button> 
+        </a>
+        <a href="">
+            <button id="btn">Novo Usuário</button> 
+        </a>
+    </div>
+
+
+    
+    <script>
+        function fecharChamado(id) {
+            fetch(`/chamado/fechar/${id}`, { method: 'POST' })
+                .then(() => location.reload());
+        }
+    
+        function excluirChamado(id) {
+            fetch(`/chamado/excluir/${id}`, { method: 'POST' })
+                .then(() => location.reload());
+        }
+    </script>
+    
+</body>
+</html>
