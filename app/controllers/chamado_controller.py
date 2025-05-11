@@ -2,6 +2,8 @@ from flask import Blueprint, render_template, redirect, request
 from flask_login import login_required, current_user
 from app import db
 from app.models.chamado import Chamado
+from app.models.user import User
+
 
 bp = Blueprint('chamado', __name__)
 

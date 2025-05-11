@@ -12,8 +12,10 @@ def create_app():
     db.init_app(app)
     login_manager.init_app(app)
 
-    from app.controllers import auth_controller, chamado_controller
+    from app.controllers import auth_controller, chamado_controller,user_controller
     app.register_blueprint(auth_controller.bp)
     app.register_blueprint(chamado_controller.bp)
+    app.register_blueprint(user_controller.bp)
+
 
     return app
