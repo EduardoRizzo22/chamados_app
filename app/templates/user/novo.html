@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html>
+	<head>
+		<title>Sistema de Chamados</title>
+		<link rel="stylesheet" href="../static/style.css">
+	</head>
 
-<head>
-    <title>Sistema de Chamados</title>
-    <link rel="stylesheet" href="../static/style.css">
-</head>
-<h2>Novo Usuário</h2>
-<form action="{{ url_for('user.criar_usuario') }}" method="post">
-  <label>Username: <input type="text" name="username"></label><br>
-  <label>Senha: <input type="password" name="password"></label><br>
-  <label>Tipo:
-    <select name="role">
-      <option value="admin">Admin</option>
-      <option value="tecnico">Técnico</option>
-      <option value="cliente">Cliente</option>
-    </select>
-  </label><br>
-  <button type="submit">Criar</button>
-</form>
+	<h1>Novo Usuário</h1>
+
+	<form id="formLogin" action="{{ url_for('user.criar_usuario') }}" method="post">
+		<input id="inputLogin" type="text" name="username" placeholder="Usuário">
+		<input id="inputLogin" type="password" name="password" placeholder="Senha">
+
+		<select id="selectuser" name="role" placeholder="Cargo">
+			<option value="admin">Admin</option>
+			<option value="tecnico">Técnico</option>
+			<option value="cliente">Cliente</option>
+		</select>
+		<button id="btn" type="submit">Criar</button>
+	</form>
+
+	<a href="/dashboard"><button id="btnCancel">cancelar</button></a>
 </html>

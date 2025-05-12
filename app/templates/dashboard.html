@@ -24,7 +24,7 @@
             <td>{{ chamado.status }}</td>
             <td>{{ chamado.usuario_id }}</td>
             <td id="tabAction">
-                <button id="btn" onclick="fecharChamado({{ chamado.id }})">fechar chamado</button>
+                <button id="btnDash" onclick="fecharChamado({{ chamado.id }})">fechar chamado</button>
                 <button id="btnExclude" onclick="excluirChamado({{ chamado.id }})">excluir</button>
             </td>
         </tr>
@@ -33,13 +33,13 @@
 
     <div id="btnDiv">
         <a href="/chamado/novo">
-            <button id="btn">Novo chamado</button> 
-        </a>
-        <a href="/logout">
-            <button id="btn">Logout</button> 
+            <button id="btnDash">Novo chamado</button> 
         </a>
         <a href="/listar">
-            <button id="btn">Lista de Usuarios</button> 
+            <button id="btnDash">Lista de Usuarios</button> 
+        </a>
+        <a href="/logout">
+            <button id="btnCancel">Logout</button> 
         </a>
     </div>
 

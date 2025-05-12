@@ -1,36 +1,46 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Sistema de Chamados</title>
-    <link rel="stylesheet" href="../static/style.css">
-</head>
-<body>
+  <head>
+      <title>Sistema de Chamados</title>
+      <link rel="stylesheet" href="../static/style.css">
+  </head>
+  <body>
 
-<h2>Usuários</h2>
+    <h1>Usuários</h1>
 
-<!-- Botão para adicionar novo usuário -->
-<a href="/user/novo">
-  <button type="button">Novo Usuário</button>
-</a>
+    <!-- tabela de usuários -->
+     
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Role</th>
+        <th>Ações</th>
+      </tr>
+    
+      {% for u in usuarios %}
+      <tr>
+        <td>{{ u.id }}</td>
+        <td>{{ u.username }}</td>
+        <td>{{ u.role }}</td>
+        <td id="tabAction">
+          <form action="{{ url_for('user.deletar_usuario', id=u.id) }}" method="post" style="display:inline;">
+            <button id="btnExclude" type="submit">Excluir</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
 
-<!-- Link (opcional) para voltar à lista -->
-<a href="/dashboard">♥</a>
+    <!-- Botão para adicionar novo usuário -->
+    <a href="/user/novo">
+      <button id="btn" type="button">Novo Usuário</button>
+    </a>
 
-<table border="1">
-  <tr><th>ID</th><th>Username</th><th>Role</th><th>Ações</th></tr>
-  {% for u in usuarios %}
-  <tr>
-    <td>{{ u.id }}</td>
-    <td>{{ u.username }}</td>
-    <td>{{ u.role }}</td>
-    <td>
-      <form action="{{ url_for('user.deletar_usuario', id=u.id) }}" method="post" style="display:inline;">
-        <button type="submit">Excluir</button>
-      </form>
-    </td>
-  </tr>
-  {% endfor %}
-</table>
+    <!-- Link para voltar à lista -->
+    <a href="/dashboard">
+      <button id="btnCancel" type="button">voltar</button>
+    </a>
 
-</body>
+  </body>
 </html>

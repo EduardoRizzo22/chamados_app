@@ -1,154 +1,169 @@
-body { 
+body {
     display: flex;
     flex-direction: column;
     width: 90%;
     height: 100%;
     align-items: center;
-    align-content: center;
-    font-family: Arial;
-    margin: 50px;
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    gap: 1%;
 }
 
-input, textarea { display: block; margin-bottom: 20px; }
-
-h1{
-    font-weight: 600;
-    font-variant: small-caps;
+input, textarea, select {
+    display: block;
+    margin-bottom: 20px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
 }
 
-#btnDiv{
-    width: 75%;
-    display: flex;
-    flex-direction: row;
+select {
+    margin-top: 1%;
+    width: 71%;
+    align-self: center;
+    color: #808080;
+}
 
+h1 {
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 10px 0;
+    color: #333;
+}
+
+#btnDiv {
     align-items: center;
-    align-content: center;
-}
-
-#btn{
-    width: 90%;
-    height: 35px;
-    align-self: center;
-    
-    border-color:black;
-    background-color: yellowgreen;
-}
-#btnCancel{
-    width: 90%;
-    height: 35px;
-    align-self: center;
-    
-    border-color:black;
-    background-color: rgb(235, 173, 173);
-}
-#btnExclude{
-    width: 90%;
-    height: 35px;
-    align-self: center;
-    
-    border-color:black;
-    background-color: rgb(235, 173, 173);
-}
-
-/* LOGIN */
-
-#formLogin{
     width: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
+    gap: 0px;
 }
 
-#inputLogin{
-    width: 50%;
-    height: 20px;
+button {
     align-self: center;
+    margin-top: 1%;
+    padding: 10px 15px;
+    width: 150px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
 
+#btnDash, #btn {
+    background-color: #4CAF50;
+}
+
+#btnDash:hover, #btn:hover {
+    background-color: #45a049;
+}
+
+#btnCancel, #btnExclude {
+    background-color: #e57373;
+    width: 150px;
+    height: 40px;
+}
+
+#btnCancel:hover, #btnExclude:hover {
+    background-color: #ef5350;
+}
+
+#formLogin, #formNovoChamado {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    margin: 1%;
+}
+
+#inputLogin, #tituloNovoChamado, #descricaoNovoChamado {
+    width: 100%;
+    max-width: 400px;
+    margin: 1% auto;
+    padding: 10px;
+    border: 1px solid #ccc;
     border-radius: 6px;
-    border-width: 2px;
-    border-color: black;
-    padding: 5px;
+}
 
-    font-family: Arial;
+label {
+    background-color: aquamarine;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 55%;
+    height: auto;
+    align-self: center;
+    align-items: center;
+    padding: 5px;
+    border-radius: 6px;
+    margin: 1% auto;
     font-size: medium;
     font-weight: 200;
 }
 
-/* DASHBOARD */
-
-a{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-
+a {
     text-decoration: none;
+    color: #4CAF50;
+    margin: 1%;
 }
 
-table{
-    margin-bottom: 5%;
-    align-content: space-around;
-    align-items: center;
-    align-content: center;
-    width: 75%;
-    height: auto;
+a:hover {
+    color: #45a049;
 }
 
-tr{
-    margin-top: 20%;
-    height: 50px;
-    align-items: center;
-    align-content: center;
+table {
+    width: 100%;
+    max-width: 800px;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+th {
+    background-color: #d3d3d3;
+    color: #333;
+    padding: 12px;
+    text-align: center;
+}
+
+tr {
+    background-color: #f9f9f9;
     border-bottom: 1px solid #ddd;
 }
 
-td{
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-bottom: 20%;
-    align-items: center;
-    align-content: center;
-    align-self: center;
+tr:hover {
+    background-color: #f1f1f1;
 }
 
-tr:nth-child(odd) {
-    background-color: rgb(218, 214, 214);
-  }
+td {
+    padding: 12px;
+    text-align: center;
+}
 
-
-/*CHAMADO NOVO */
-
-#formNovoChamado{
-    width: 100%;
+#tabAction {
     display: flex;
     flex-direction: column;
-}
-
-#tituloNovoChamado{
-    width: 75%;
-    height: 20px;
+    align-content: center;
     align-self: center;
-
-    border-radius: 6px;
-    border-width: 2px;
-    border-color: black;
-    padding: 5px;
-
-    font-family: Arial;
-    font-size: medium;
-    font-weight: 200;
+    align-items: center;
+    justify-content: space-between;
 }
 
-#descricaoNovoChamado{
-    width: 75%;
-    height: 100px;
-    align-self: center;
-
-    border-radius: 6px;
-    border-width: 2px;
-    border-color: black;
-    padding: 5px;
-
-    font-family: Arial;
-    font-size: medium;
-    font-weight: 200;
+@media (max-width: 768px) {
+    body {
+        margin: 10px;
+    }
+    #btnDiv {
+        flex-direction: column;
+        gap: 5px;
+    }
+    #inputLogin, #tituloNovoChamado, #descricaoNovoChamado, label, select {
+        width: 100%;
+    }
+    table, td {
+        width: 100%;
+    }
 }
-

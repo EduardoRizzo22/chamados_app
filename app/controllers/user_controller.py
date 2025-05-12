@@ -5,16 +5,22 @@ from app import db
 
 bp = Blueprint('user', __name__)
 
+# Rota de listagem de usuário
+
 @bp.route('/listar')
 @login_required
 def listar_usuarios():
     usuarios = User.query.all()
     return render_template('listar.html', usuarios=usuarios)
 
+# Rota de criação de usuário
+
 @bp.route('/user/novo')
 @login_required
 def novo_usuario():
     return render_template('user/novo.html')
+
+# Rota de envio de dados para o banco de usuário
 
 @bp.route('/user/criar', methods=['POST'])
 @login_required
@@ -27,6 +33,8 @@ def criar_usuario():
     db.session.add(novo)
     db.session.commit()
     return redirect(url_for('user.listar_usuarios'))
+
+# Rota de deleção de usuário
 
 @bp.route('/user/deletar/<int:id>', methods=['POST'])
 @login_required

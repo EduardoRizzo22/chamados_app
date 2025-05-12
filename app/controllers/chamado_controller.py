@@ -7,11 +7,15 @@ from app.models.user import User
 
 bp = Blueprint('chamado', __name__)
 
+# Rota do dashboard
+
 @bp.route('/dashboard')
 @login_required
 def dashboard():
     chamados = Chamado.query.all()
     return render_template('dashboard.html', chamados=chamados)
+
+# Rota de criação de novo chamado
 
 @bp.route('/chamado/novo', methods=['GET', 'POST'])
 @login_required
@@ -26,6 +30,8 @@ def novo_chamado():
         db.session.commit()
         return redirect('/dashboard')
     return render_template('chamados/novo.html')
+
+# Rota de fechamento e exclusão de chamado; o front utiliza um script onde o controller é ativaddo.
 
 @bp.route('/chamado/fechar/<int:id>', methods=['POST'])
 @login_required
