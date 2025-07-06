@@ -2,6 +2,19 @@ from flask import Blueprint, render_template, request, redirect, url_for
 from app.models.user import User
 from flask_login import login_required, current_user
 from app import db
+import requests
+
+def notificar_email(destinatario, assunto, mensagem):
+    payload = {
+        "to": destinatario,
+        "subject": assunto,
+        "message": mensagem
+    }
+    try:
+        requests.post("http://localhost:5001/send-email", json=payload)
+    except Exception as e:
+        print("Erro ao enviar e-mail:", e)
+
 
 bp = Blueprint('user', __name__)
 
@@ -32,6 +45,7 @@ def criar_usuario():
     novo = User(username=username, password=password, role=role)
     db.session.add(novo)
     db.session.commit()
+    notificar_email(username, "Bem-vindo!", "Seu usuário foi criado com sucesso.")
     return redirect(url_for('user.listar_usuarios'))
 
 # Rota de deleção de usuário
